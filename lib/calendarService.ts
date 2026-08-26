@@ -85,7 +85,7 @@ async function shiftAlreadyExists(
         timeMin: startISO,
         timeMax: endISO,
         singleEvents: true,
-        privateExtendedProperty: "source=screenshot-scheduler",
+        privateExtendedProperty: ["source=screenshot-scheduler"],
     });
     return (res.data.items || []).length > 0;
 }
