@@ -90,6 +90,38 @@ async function shiftAlreadyExists(
     return (res.data.items || []).length > 0;
 }
 
+export type UpcomingEvent = {
+    id: string;
+    title: string;
+    start: string;
+    end: string;
+    allDay: boolean;
+};
+
+export async function listUpcomingEvents(
+    userId: string,
+    maxResults = 5
+): Promise<UpcomingEvent[]> {
+    const auth = await getAuthenticatedClientForUser(userId);
+    const calendar = google.calendar({ version: "v3", auth });
+
+    const res = await calendar.events.list({
+        calendarId: "primary",
+        timeMin: new Date().toISOString(),
+        maxResults,
+        singleEvents: true,
+        orderBy: "startTime",
+    });
+
+    return (res.data.items || []).map((event) => ({
+        id: event.id || "",
+        title: event.summary || "(No title)",
+        start: event.start?.dateTime || event.start?.date || "",
+        end: event.end?.dateTime || event.end?.date || "",
+        allDay: !event.start?.dateTime,
+    }));
+}
+
 export async function insertEvents(userId: string, events: ParsedEvent[]) {
     const auth = await getAuthenticatedClientForUser(userId);
     const calendar = google.calendar({ version: "v3", auth });
