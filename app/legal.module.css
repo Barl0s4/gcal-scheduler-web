@@ -1,0 +1,67 @@
+/* ===============================================================
+   Shared layout for the Privacy Policy and Terms of Service pages
+   =============================================================== */
+
+.page {
+  width: 100%;
+  max-width: 672px;
+  margin: 0 auto;
+  padding: 56px 24px;
+}
+
+.backLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.title {
+  margin-top: 24px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.effectiveDate {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 32px;
+  font-size: 14.5px;
+  line-height: 1.625;
+}
+
+.content h2 {
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.content strong {
+  font-weight: 600;
+}
+
+.content a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.content code {
+  font-size: 13px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}

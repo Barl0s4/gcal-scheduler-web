@@ -1,5 +1,4 @@
 import { google, calendar_v3 } from "googleapis";
-import { PrismaClient } from "@prisma/client";
 import { ParsedEvent } from "./visionService";
 
 import { prisma } from "./prisma";
@@ -7,7 +6,8 @@ import { prisma } from "./prisma";
 function parseTime(timeStr: string): { hour: number; minute: number } {
     const trimmed = timeStr.trim().toLowerCase();
     const [timePart, period] = trimmed.split(" ");
-    let [hour, minute] = timePart.split(":").map(Number);
+    const [rawHour, minute] = timePart.split(":").map(Number);
+    let hour = rawHour;
 
     if (period === "pm" && hour !== 12) hour += 12;
     else if (period === "am" && hour === 12) hour = 0;

@@ -84,7 +84,7 @@ export async function parseCalendarImage(
 
     try {
         return JSON.parse(responseText) as ParsedEvent[];
-    } catch (err) {
+    } catch {
         console.error("Failed to parse Gemini response as JSON:", responseText);
         throw new Error("Gemini did not return valid JSON");
     }

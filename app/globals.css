@@ -1,15 +1,45 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------
+   Design tokens
+   One place to change the app's look. Every component stylesheet
+   pulls its colors and fonts from here.
+   --------------------------------------------------------------- */
 :root {
+  /* Surfaces & text */
   --background: oklch(97% 0.008 65);
   --foreground: oklch(24% 0.015 50);
   --muted-foreground: oklch(48% 0.012 50);
   --card: oklch(99.2% 0.004 60);
   --border: oklch(88% 0.015 60);
+
+  /* Brand accent */
   --accent: #9c6248;
   --accent-foreground: oklch(99% 0.005 60);
+  --accent-tint: color-mix(in oklch, var(--accent) 15%, transparent);
+  --accent-tint-soft: color-mix(in oklch, var(--accent) 10%, transparent);
+
+  /* Status colors */
+  --success-bg: oklch(88% 0.05 150);
+  --success-fg: oklch(38% 0.08 150);
+  --success-dot: oklch(62% 0.14 150);
+  --danger-bg: oklch(90% 0.05 30);
+  --danger-fg: oklch(45% 0.12 30);
+  --danger-text: oklch(38% 0.1 30);
+
+  /* Elevation */
+  --shadow-card: 0 2px 12px oklch(30% 0.02 50 / 0.05);
+  --shadow-widget: 0 1px 6px oklch(30% 0.02 50 / 0.04);
+  --shadow-button: 0 6px 16px oklch(35% 0.03 50 / 0.18);
+  --shadow-modal: 0 16px 40px oklch(20% 0.03 50 / 0.25);
+  --scrim: oklch(20% 0.02 50 / 0.45);
+
+  /* Type */
+  --font-body: var(--font-manrope), system-ui, sans-serif;
+  --font-display: var(--font-instrument-serif), Georgia, serif;
 }
 
+/* Keeps Tailwind's theme in sync so any utility class still works. */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -22,8 +52,43 @@
   --font-serif: var(--font-instrument-serif);
 }
 
+/* ---------------------------------------------------------------
+   Base document
+   --------------------------------------------------------------- */
+html {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-body);
+}
+
+/* ---------------------------------------------------------------
+   Shared animations
+   --------------------------------------------------------------- */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

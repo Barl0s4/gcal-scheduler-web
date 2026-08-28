@@ -1,0 +1,169 @@
+/* ===============================================================
+   Home page — loading, signed-out (sign in), and signed-in states
+   =============================================================== */
+
+/* --- Loading state ------------------------------------------- */
+.loadingScreen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingSpinner {
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+}
+
+/* --- Signed-out / sign-in screen ------------------------------ */
+.signInScreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 32px;
+  text-align: center;
+}
+
+/* Logo + app name lockup. The wordmark has to stay visible and
+   spelled exactly "Calendar Scheduler" for Google's OAuth
+   branding verification to pass. */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.wordmark {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+}
+
+.logoBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--accent-tint);
+  color: var(--accent);
+  box-shadow: 0 1px 2px oklch(30% 0.02 50 / 0.06);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  max-width: 320px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.subtitle {
+  max-width: 320px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.625;
+  color: var(--muted-foreground);
+}
+
+.googleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 300px;
+  padding: 16px 24px;
+  border-radius: 16px;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-button);
+}
+
+.finePrint {
+  max-width: 260px;
+  font-size: 12px;
+  line-height: 1.625;
+  color: var(--muted-foreground);
+}
+
+.legalLinks {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.legalLinks a {
+  text-decoration: underline;
+}
+
+.legalDivider {
+  margin: 0 8px;
+}
+
+/* --- Signed-in screen ----------------------------------------- */
+.appShell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.appHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 4px;
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.userName {
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+.signOutButton {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.appMain {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
